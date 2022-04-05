@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="3">
+
+        <EditText
+            android:id="@+id/num1"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:hint="Digite aqui">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/num2"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:hint="Digite aqui">
+
+        </EditText>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="80pt"
+        android:text="0"
+        android:textSize="32sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:padding="50dp">
+
+        <Button
+            android:id="@+id/somar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:paddingVertical="30dp"
+            android:text="+"
+            android:layout_marginHorizontal="10dp"></Button>
+
+        <Button
+            android:id="@+id/subtrair"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:paddingVertical="30dp"
+            android:text="-"
+            android:layout_marginHorizontal="10dp">
+
+        </Button>
+
+        <Button
+            android:id="@+id/multiplicar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="3"
+            android:paddingVertical="30dp"
+            android:text="x">
+
+        </Button>
+
+        <Button
+            android:id="@+id/dividir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:paddingVertical="30dp"
+            android:text="÷"
+            android:layout_marginHorizontal="10dp">
+
+        </Button>
+    </LinearLayout>
+
+
+
+</LinearLayout>
