@@ -10,113 +10,86 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText numero1;
-    private EditText numero2;
+    private EditText numero1, numero2;
     private TextView resultado;
-    private Button button;
-    private Button buttonSub;
-    private Button buttonMult;
-    private Button buttonDiv;
-
-    private float resultadoSoma;
-    private float resultadoSubtracao;
-    private float resultadoMult;
-    private float resultadoDiv;
+    private Button buttonSum, buttonSub, buttonMult, buttonDiv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        numero1 = findViewById(R.id.num1);
-        numero2 = findViewById(R.id.num2);
-        resultado = findViewById(R.id.resultado);
-        button = findViewById(R.id.somar);
-        buttonSub = findViewById(R.id.subtrair);
-        buttonDiv = findViewById(R.id.dividir);
-        buttonMult = findViewById(R.id.multiplicar);
+        ButtonCalcularOnClickListener botoesListener = new ButtonCalcularOnClickListener();
+        this.numero1 = (EditText) findViewById(R.id.num1);
+        this.numero2 = (EditText) findViewById(R.id.num2);
+        
+        this.resultado = (TextView) findViewById(R.id.resultado);
+        
+        this.buttonSum = (Button) findViewById(R.id.somar);
+        this.buttonSub = (Button) findViewById(R.id.subtrair);
+        this.buttonDiv = (Button) findViewById(R.id.dividir);
+        this.buttonMult = (Button) findViewById(R.id.multiplicar);
 
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                float number1 = 0;
-                float number2 = 0;
-
-                number1 = Float.valueOf(String.valueOf(numero1.getText()));
-                number2 = Float.valueOf(String.valueOf(numero2.getText()));
-
-                somar(number1, number2);
-            }
-        });
-        buttonSub.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                float number1 = 0;
-                float number2 = 0;
-
-                number1 = Float.valueOf(String.valueOf(numero1.getText()));
-                number2 = Float.valueOf(String.valueOf(numero2.getText()));
-
-                subtrair(number1, number2);
-            }
-        });
-
-        buttonMult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                float number1 = 0;
-                float number2 = 0;
-
-                number1 = Float.valueOf(String.valueOf(numero1.getText()));
-                number2 = Float.valueOf(String.valueOf(numero2.getText()));
-
-                multiplicar(number1, number2);
-            }
-        });
-        buttonDiv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                float number1 = 0;
-                float number2 = 0;
-
-                number1 = Float.valueOf(String.valueOf(numero1.getText()));
-                number2 = Float.valueOf(String.valueOf(numero2.getText()));
-
-                dividir(number1, number2);
-            }
-        });
-
+        this.buttonSum.setOnClickListener(botoesListener);
+        this.buttonSub.setOnClickListener(botoesListener);
+        this.buttonDiv.setOnClickListener(botoesListener);
+        this.buttonMult.setOnClickListener(botoesListener);
+        
     }
 
+    public void calcular(botaoId) {
+        float resultado;
+        float number1 = 0;
+        float number2 = 0;
+
+        number1 = Float.valueOf(String.valueOf(numero1.getText()));
+        number2 = Float.valueOf(String.valueOf(numero2.getText()));
+
+        switch(botaoId){
+            case R.id.buttonSum:
+                resultado = somar(number1, number2);
+                break;
+            case R.id.buttonSub:
+                resultado = subtrair(number1. number2)
+                break;
+            case R.id.buttonMult:
+                resultado = multiplicar(number1. number2)
+                break;
+            case R.id.buttonDiv:
+                resultado = dividir(number1. number2)
+                break;
+        }
+
+    }
     public void somar(float number1, float number2) {
-        this.resultadoSoma = number1 + number2;
+        float Soma = number1 + number2;
 
-        String resultadoString = String.valueOf(this.resultadoSoma);
-
-        resultado.setText(resultadoString);
+        return Soma;
     }
 
     public void multiplicar(float number1, float number2) {
-        this.resultadoMult = number1 * number2;
+        float Mult = number1 * number2;
 
-        String resultadoString = String.valueOf(this.resultadoMult);
-
-        resultado.setText(resultadoString);
+        return Mult;
     }
 
     public void dividir(float number1, float number2) {
-        this.resultadoDiv = number1 - number2;
+        float Div = number1 - number2;
 
-        String resultadoString = String.valueOf(this.resultadoDiv);
-
-        resultado.setText(resultadoString);
+        return Div;
     }
     public void subtrair(float number1, float number2) {
-        this.resultadoSubtracao = number1 / number2;
+        float Subtracao = number1 / number2;
 
-        String resultadoString = String.valueOf(this.resultadoSubtracao);
+        return Subtracao;
+    }
+    class ButtonCalcularOnClickListener implements View.OnClickListener{
 
-        resultado.setText(resultadoString);
+        @Override
+        public void onClick(View view) {
+
+            calcular(view.getId());
+        }
     }
 }
